@@ -39,7 +39,7 @@ public class UUTransmutator extends SlimefunItem {
                           final ItemStack[] recipe) {
         super(category, item, name, recipeType, recipe);
 
-        new BlockMenuPreset(name, "&5UU Transmutator") {
+        new BlockMenuPreset(name, "&5UU反物质突变器") {
 
             public void init() {
                 constructMenu(this);

@@ -15,13 +15,9 @@ public class CustomRecipeType {
     public static final RecipeType BEDROCK_BREAKER;
 
     static {
-        RECYCLER = new RecipeType(new CustomItem(Material.IRON_BLOCK, "&cRecycler", "", "&a&oPut any materials into " +
-            "it and get Scrap out of it"));
-        DEEP_MINER = new RecipeType(new CustomItem(Material.BEACON, "&aDeep Depth Miner", "", "&a&oMine it with the " +
-            "Deep Depth Miner"));
-        BEDROCK_BREAKER = new RecipeType(new CustomItem(Material.IRON_BLOCK, "&aBedrock Breaker", "", "&a&oObtain it " +
-            "by mining bedrock using the Bedrock Breaker"));
-        UU_FABRICATOR = new RecipeType(new CustomItem(Material.PURPLE_STAINED_GLASS, "&aMatter Fabricator", "", "&a" +
-            "&oProduct of a Matter Fabricator"));
+        RECYCLER = new RecipeType(new CustomItem(Material.IRON_BLOCK, "&c回收机", 1, new String[]{"", "&a&o把任何材料放进去,你就会得到废料"}));
+        DEEP_MINER = new RecipeType(new CustomItem(Material.BEACON, "&a终极挖矿机", 1, new String[]{"", "&a&o挖取沉淀在矿物上的钍"}));
+        BEDROCK_BREAKER = new RecipeType(new CustomItem(Material.IRON_BLOCK, "&a基岩毁灭者", 1, new String[]{"", "&a&o用基岩毁灭者来挖掘获得"}));
+        UU_FABRICATOR = new RecipeType(new CustomItem(Material.PURPLE_STAINED_GLASS, "&a物质创造者", new String[]{"", "&a&o由物质创造者产生"}));
     }
 }

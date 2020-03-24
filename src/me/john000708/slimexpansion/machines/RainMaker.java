@@ -33,7 +33,7 @@ public class RainMaker extends AContainer {
 
     @Override
     public String getInventoryTitle() {
-        return "&3Rain Maker";
+        return "&3制雨机";
     }
 
     @Override

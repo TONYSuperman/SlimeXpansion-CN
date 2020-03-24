@@ -45,7 +45,7 @@ public abstract class UUFabricator extends AContainer {
 
     @Override
     public String getInventoryTitle() {
-        return "&5UU Fabricator";
+        return "&5物质创造者";
     }
 
     protected void tick(Block b) {

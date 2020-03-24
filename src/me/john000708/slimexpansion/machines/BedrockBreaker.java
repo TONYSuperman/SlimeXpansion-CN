@@ -51,7 +51,7 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
                           final ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
-        new BlockMenuPreset(name, "&4Bedrock Breaker") {
+        new BlockMenuPreset(name, "&4基岩毁灭者") {
 
             @Override
             public void init() {
@@ -61,13 +61,11 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
             @Override
             public void newInstance(final BlockMenu menu, final Block block) {
                 if (BlockStorage.getLocationInfo(block.getLocation(), "enabled") != null) {
-                    menu.replaceExistingItem(14, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3Breaker " +
-                        "Idle"));
-                    menu.replaceExistingItem(15, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3Breaker " +
-                        "Idle"));
+                    menu.replaceExistingItem(14, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3基岩毁灭者空闲"));
+                    menu.replaceExistingItem(15, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3基岩毁灭者空闲"));
                     if (!BlockStorage.getLocationInfo(block.getLocation(), "enabled").equalsIgnoreCase("true")) {
                         for (int i : toggleSlots) {
-                            menu.replaceExistingItem(i, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cDisabled"));
+                            menu.replaceExistingItem(i, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c未激活"));
                             menu.addMenuClickHandler(i, (player, i12, itemStack, clickAction) -> {
                                 BlockStorage.addBlockInfo(block, "enabled", "true");
                                 newInstance(menu, block);
@@ -76,7 +74,7 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
                         }
                     } else {
                         for (int i : toggleSlots) {
-                            menu.replaceExistingItem(i, new CustomItem(Material.GREEN_STAINED_GLASS_PANE, "&aEnabled"));
+                            menu.replaceExistingItem(i, new CustomItem(Material.GREEN_STAINED_GLASS_PANE, "&a激活"));
                             menu.addMenuClickHandler(i, (player, i1, itemStack, clickAction) -> {
                                 BlockStorage.addBlockInfo(block, "enabled", "false");
                                 newInstance(menu, block);
@@ -136,12 +134,12 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
         if (getEnergyConsumption() > ChargableBlock.getCharge(block)) return;
 
         if (block.getRelative(BlockFace.DOWN).getType() != Material.BEDROCK) {
-            updateStatus(block, new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4No Bedrock Found"));
+            updateStatus(block, new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4未找到基岩"));
             return;
         }
 
         if (!(BlockStorage.getInventory(block).getItemInSlot(10) != null && SlimefunManager.isItemSimilar(BlockStorage.getInventory(block).getItemInSlot(10), Items.BEDROCK_DRILL, false))) {
-            updateStatus(block, new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4No Drill Found"));
+            updateStatus(block, new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4缺少钻头"));
             return;
         }
 
@@ -190,7 +188,7 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
 
             block.getWorld().spawnParticle(Particle.BLOCK_CRACK, block.getLocation().add(.5, .5, .5), 50,
                 Material.BEDROCK.createBlockData());
-            updateStatus(block, new CustomItem(new ItemStack(Material.EMERALD_BLOCK), "&aBreaker Operational", "",
+            updateStatus(block, new CustomItem(new ItemStack(Material.EMERALD_BLOCK), "&a基岩毁灭者工作中", "",
                 "&7Bedrock Durability: " + BlockStorage.getLocationInfo(block.getLocation(), "durability")));
             timeLeft--;
         }
@@ -247,12 +245,12 @@ public class BedrockBreaker extends SimpleSlimefunItem<BlockTicker> {
         }
 
         preset.addMenuClickHandler(14, (player, i, itemStack, clickAction) -> {
-            preset.addItem(14, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3Breaker Idle"));
+            preset.addItem(14, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3基岩毁灭者空闲"));
             return false;
         });
 
         preset.addMenuClickHandler(15, (player, i, itemStack, clickAction) -> {
-            preset.addItem(15, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3Breaker Idle"));
+            preset.addItem(15, new CustomItem(new ItemStack(Material.DIAMOND_BLOCK), "&3基岩毁灭者空闲"));
             return false;
         });
     }

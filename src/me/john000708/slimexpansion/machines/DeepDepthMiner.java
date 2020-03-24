@@ -63,7 +63,7 @@ public class DeepDepthMiner extends SimpleSlimefunItem<BlockTicker> {
                           final ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
-        new BlockMenuPreset(name, "&6Deep Depth Miner") {
+        new BlockMenuPreset(name, "&6终极挖矿机") {
 
             public void init() {
                 constructMenu(this);
@@ -157,7 +157,7 @@ public class DeepDepthMiner extends SimpleSlimefunItem<BlockTicker> {
 
         if (stop) {
             BlockStorage.getInventory(block).replaceExistingItem(4,
-                new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4No Bedrock Found"));
+                new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4未发现基岩"));
             return;
         }
 
@@ -168,7 +168,7 @@ public class DeepDepthMiner extends SimpleSlimefunItem<BlockTicker> {
             && SlimefunManager.isItemSimilar(BlockStorage.getInventory(block).getItemInSlot(9), Items.LASER_CHARGE,
             false))) {
             BlockStorage.getInventory(block).replaceExistingItem(4,
-                new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4No Laser Charge Found"));
+                new CustomItem(new ItemStack(Material.REDSTONE_BLOCK), "&4没有进行激光充能"));
             return;
         }
 
@@ -189,7 +189,7 @@ public class DeepDepthMiner extends SimpleSlimefunItem<BlockTicker> {
         }
 
         BlockStorage.getInventory(block).replaceExistingItem(4, new CustomItem(new ItemStack(Material.EMERALD_BLOCK),
-            "&aLaser Operational"));
+            "&a激光操作中"));
 
         if (laserPos == 3) {
             BlockStorage.getInventory(block).replaceExistingItem(laserBar[laserPos - 1],
@@ -296,7 +296,7 @@ public class DeepDepthMiner extends SimpleSlimefunItem<BlockTicker> {
                                                                                             clickAction) -> false);
         }
 
-        preset.addItem(4, new CustomItem(Material.DIAMOND_BLOCK, "&3Laser Idle"));
+        preset.addItem(4, new CustomItem(Material.DIAMOND_BLOCK, "&3激光空闲"));
     }
 
     private Inventory inject(Block b) {

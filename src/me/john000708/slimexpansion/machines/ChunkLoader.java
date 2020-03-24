@@ -35,7 +35,7 @@ public class ChunkLoader extends SimpleSlimefunItem<BlockTicker> {
                        ItemStack[] recipe) {
         super(category, itemStack, recipeType, recipe);
 
-        new BlockMenuPreset(name, "&dChunk Loader") {
+        new BlockMenuPreset(name, "&d区块加载器") {
 
             @Override
             public void init() {

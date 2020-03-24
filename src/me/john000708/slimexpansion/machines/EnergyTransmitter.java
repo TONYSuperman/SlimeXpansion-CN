@@ -24,7 +24,7 @@ public class EnergyTransmitter extends SlimefunItem {
                              ItemStack[] recipe) {
         super(category, item, name, recipeType, recipe);
 
-        new BlockMenuPreset(name, "&cEnergy Transmitter") {
+        new BlockMenuPreset(name, "&c能量发射器") {
 
             @Override
             public void init() {
@@ -35,14 +35,14 @@ public class EnergyTransmitter extends SlimefunItem {
             public void newInstance(final BlockMenu menu, final Block block) {
                 if (BlockStorage.getLocationInfo(block.getLocation(), "enabled") != null) {
                     if (BlockStorage.getLocationInfo(block.getLocation(), "enabled").equalsIgnoreCase("true")) {
-                        menu.replaceExistingItem(13, new CustomItem(Material.GREEN_STAINED_GLASS_PANE, "&aEnabled"));
+                        menu.replaceExistingItem(13, new CustomItem(Material.GREEN_STAINED_GLASS_PANE, "&a激活"));
                         menu.addMenuClickHandler(13, (player, i, itemStack, clickAction) -> {
                             BlockStorage.addBlockInfo(block, "enabled", "false");
                             newInstance(menu, block);
                             return false;
                         });
                     } else {
-                        menu.replaceExistingItem(13, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cDisabled"));
+                        menu.replaceExistingItem(13, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c未激活"));
                         menu.addMenuClickHandler(13, (player, i, itemStack, clickAction) -> {
                             BlockStorage.addBlockInfo(block, "enabled", "true");
                             newInstance(menu, block);

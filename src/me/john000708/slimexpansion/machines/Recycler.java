@@ -36,7 +36,7 @@ public abstract class Recycler extends AContainer {
 
     @Override
     public String getInventoryTitle() {
-        return "&4Recycler";
+        return "&4回收机";
     }
 
     @Override
