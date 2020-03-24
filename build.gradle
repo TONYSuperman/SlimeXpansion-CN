@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+group = pluginGroup
+version = pluginVersion
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'jitpack.io'
+        url = 'https://jitpack.io'
+    }
+
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compileOnly 'org.bukkit:bukkit:1.14.4-R0.1-SNAPSHOT'
+    compileOnly 'com.github.TheBusyBiscuit:CS-CoreLib:199e1b1e06'
+    compileOnly 'com.github.TheBusyBiscuit:Slimefun4:dfcb06180d'
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filter ReplaceTokens, tokens: [version: version]
+    }
+}
